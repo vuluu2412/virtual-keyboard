@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.custom-theme {
+  max-width: 500px;
+  margin: 20px auto;
+  user-select: none;
+}
+
+.hg-button {
+  background: #f2f2f7;
+  color: #000;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  padding: 15px 0;
+  margin: 4px;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.hg-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.hg-button.hg-standardBtn {
+  flex: 1;
+}
+
+.hg-button:active {
+  background-color: #ddd;
+  transform: scale(0.96);
+}
+
+.hg-button[data-skbtn="{space}"] {
+  flex: 5;
+}
+.custom-theme {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hg-button {
+  border-radius: 8px;
+  margin: 3px;
+  padding: 18px 0;
+  font-size: 18px;
+  background: #f2f2f7;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.hg-row {
+  display: flex;
+  justify-content: center;
+}
+
+.hg-button[data-skbtn="{space}"] {
+  flex: 5;
+}
+.hg-button[data-skbtn="{backspace}"],
+.hg-button[data-skbtn="{shift}"],
+.hg-button[data-skbtn="{enter}"],
+.hg-button[data-skbtn="{numbers}"],
+.hg-button[data-skbtn="{default}"] {
+  flex: 1.5;
+}
+[contenteditable="true"] {
+  caret-color: auto !important;
+}
+
+
+
