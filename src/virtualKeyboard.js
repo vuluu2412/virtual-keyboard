@@ -45,6 +45,7 @@ export default function VirtualKeyboardWithEditor() {
     }, 300);
   };
 
+  // function focus lại editor sau khi click để hiển thị caret
   const forceEditorFocus = useCallback(
     debounce(() => {
       const view = editor?._tiptapEditor?.view;
@@ -68,6 +69,7 @@ export default function VirtualKeyboardWithEditor() {
   );
 
   const handleKeyboardInput = async (key) => {
+    // check start typeping
     startTyping();
 
     const tiptapEditor = editor?._tiptapEditor;
@@ -170,6 +172,8 @@ export default function VirtualKeyboardWithEditor() {
         forceEditorFocus();
         return;
       }
+      // Chưa xử lý được để hiển thị suggestion.
+
       // case "/": {
       //   try {
       //     const tiptap = editor._tiptapEditor;
@@ -211,11 +215,12 @@ export default function VirtualKeyboardWithEditor() {
         }
         break;
     }
-
+    // Ép focus lại editor để hiển thị caret nhấp nháy.
     forceEditorFocus();
     stopTyping();
   };
 
+  // function check device
   const isMobile = () => {
     return (
       typeof window !== "undefined" &&
@@ -226,6 +231,7 @@ export default function VirtualKeyboardWithEditor() {
     );
   };
 
+  // Tắt bàn phím mặc định của mobile
   useEffect(() => {
     if (!isMobile()) {
       setIsKeyboardVisible(true);
@@ -281,6 +287,7 @@ export default function VirtualKeyboardWithEditor() {
 
   const lastClickTimeRef = useRef(0);
 
+  // function check nhập ký tự nhanh bị crash.
   const handleEditorClick = () => {
     const now = Date.now();
     const timeSinceLastClick = now - lastClickTimeRef.current;
@@ -309,6 +316,7 @@ export default function VirtualKeyboardWithEditor() {
         ref={blocknoteWrapperRef}
         onTouchStart={(e) => {
           if (isMobile()) {
+            // check select text
             if (e.touches.length === 1) {
               const touch = e.touches[0];
               if (touch.target?.closest('[contenteditable="true"]')) {
@@ -324,6 +332,9 @@ export default function VirtualKeyboardWithEditor() {
         style={{ minHeight: "200px" }}
       >
         <BlockNoteView editor={editor} slashMenu={true}>
+
+          {/*Chưa xử lý được case nhập "/" mở suggestion */}
+
           <SuggestionMenuController
             triggerCharacter="/"
             getItems={async (query) => {
